@@ -1,5 +1,5 @@
 # logique
-def chyffer_logical(data,key=3,decode=False):
+def Logique(data,key=3,decode=False):
     crypted =""
     if decode:
         key = -key
@@ -11,24 +11,25 @@ def chyffer_logical(data,key=3,decode=False):
         else:
             crypted += letter
     return crypted
-# saisir utilisateur
-def recup_data():
-    data = input("votre message : ")
-    data = data.replace("é","e").replace("ê","e").replace("è","e").replace("î","i").replace("à","a").replace("â","a").replace("ù","u").replace("ï","i")
+
+# Menu de lancement
+def main():
+    print(f"Bienvenue dans CryptoSpace un endroit vous pouriez crypter et decrypter des données")
+    print()
     options = input("Choisissez une optione :\n1.crypter\n2.decrypter\nchoix : ")
-    if options == "1":
-        encode = chyffer_logical(data)
+    if options == 1:
+        encode = Logique(data)
         print(f"Le message crypté est : {encode}")
-    elif options == "2":
-        encode = chyffer_logical(data.capitalize())
-        decode = chyffer_logical(encode, decode=True)
+    elif options == 2:
+        encode = Logique(data.capitalize())
+        decode = Logique(encode, decode=True)
         print(f"le message decrypté est : {decode}")
     else:
         print(f"Choix indisponible") 
-
-# Menu de lancement
-def main_call():
-    recup_data()
+        exit()
+    data = input("votre message : ")
+    data = data.replace("é","e").replace("ê","e").replace("è","e").replace("î","i").replace("à","a").replace("â","a").replace("ù","u").replace("ï","i")
+    
       
 if __name__=='__main__':
-    main_call()
+    main()
